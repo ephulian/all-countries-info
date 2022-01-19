@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&family=Source+Code+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <script type="module" defer src="./app.js"></script>
+
+    <title>Around the World</title>
+</head>
+<body>
+    <header class="header">
+        <div class="info">
+            <h1 class="title">It's all around the world..</h1>
+            <h3 class="mode">Dark Mode</h2>
+        </div>
+        <div class="search-filter">
+            <div class="filters-container">
+                <h3 class="filter-by">Filter by:</h3>
+                <ul class="filter-options">
+                    <li class="population-high-to-low">
+                        <h3>Population: High to Low</h3>
+                    </li>
+                    <li class="population-low-to-high">
+                        <h3>Population: Low to High</h3>
+                    </li>
+                    <li class="name-low-to-high">
+                        <h3>Name: A-Z</h3>
+                    </li>
+                    <li class="name-low-to-high">
+                        <h3>Name: Z-A</h3>
+                    </li>
+                    <li class="continent">
+                        <h3>Continent ></h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <input type="text" placeholder="Search for a country..." class="search">
+    <main class="main">
+        <section class="countries">
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value"> 84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value"> South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value"> Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="country-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/dz.png" alt="" class="flag">
+                </div>
+                <div class="country-info">
+                    <h1 class="country-title">Germany</h1>
+                    <div class="country-metric">
+                        <h2 class="info-type">Population: </h2>
+                        <h3 id="population" class="info-value">84,222,345</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Region: </h2>
+                        <h3 id="region" class="info-value">South America</h3>
+                    </div>
+                    <div class="country-metric">
+                        <h2 class="info-type">Capital: </h2>
+                        <h3 id="capital" class="info-value">Washington, DC</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
