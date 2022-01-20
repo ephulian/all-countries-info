@@ -121,7 +121,7 @@ FILTER/SEARCH ====================================================
 	padding-bottom: 0.875rem;
 	padding-top: 0.875rem;
 	padding-left: 3rem;
-	border: none;
+	border: 2px solid var(--clr-light-mode-background);
 	border-radius: var(--border-radius);
 	z-index: 2;
 	box-shadow: var(--box-shadow);
