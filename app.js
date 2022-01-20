@@ -1,7 +1,7 @@
 import { countries } from './api/getData.js';
 import { Country } from './class.js';
 
-// console.log(countries.byPopulation());
+console.log(countries.byPopulation());
 // Define active content
 // let activeContent = countries.byPopulation().slice(0, 20);
 
@@ -20,6 +20,18 @@ let countryName = '';
 	const continent = document.querySelector('.continent');
 
 	const options = document.querySelectorAll('.option');
+	const continentOption = document.querySelectorAll('.continent-option');
+
+	const continentOptions = document.querySelector('.continent-options');
+
+	const closeFilter = () => {
+		filterOptions.style.height = '0';
+		filterOptions.style.padding = '0';
+
+		continentOptions.style.width = '0';
+		continentOptions.style.padding = '0';
+		open = false;
+	};
 
 	let open = false;
 	filterButton.addEventListener('click', () => {
@@ -28,26 +40,44 @@ let countryName = '';
 			filterOptions.style.padding = '0.875rem';
 
 			options.forEach((button) => {
+				let continentsOpen = false;
 				button.addEventListener('click', (e) => {
 					switch (e.target) {
 						case populationHL:
 							activeContent = countries.byPopulation().slice(0, 20);
 							currentFilter = countries.byPopulation().slice(0, 20);
+							closeFilter();
 							break;
 						case populationLH:
 							activeContent = countries.byPopulation().reverse().slice(0, 20);
 							currentFilter = countries.byPopulation().reverse().slice(0, 20);
+							closeFilter();
 							break;
 						case nameAZ:
 							activeContent = countries.byName().slice(0, 20);
 							currentFilter = countries.byName().slice(0, 20);
+							closeFilter();
 							break;
 						case nameZA:
 							activeContent = countries.byName().reverse().slice(0, 20);
 							currentFilter = countries.byName().reverse().slice(0, 20);
+							closeFilter();
 							break;
 						case continent:
-							console.log('continent');
+							continentOptions.style.width = '160px';
+							continentOptions.style.padding = '0.875rem 0.875rem 0.875rem 0';
+							filterOptions.style.height = '190px';
+
+							continentOption.forEach((option) => {
+								option.addEventListener('click', (e) => {
+									activeContent = countries.byContinent(e.target.innerHTML).slice(0, 20);
+									currentFilter = countries.byContinent(e.target.innerHTML).slice(0, 20);
+
+									closeFilter();
+									reGenerateContent();
+								});
+							});
+							// continentsOpen = true;
 							break;
 					}
 					reGenerateContent();
@@ -56,9 +86,7 @@ let countryName = '';
 
 			open = true;
 		} else if (open === true) {
-			filterOptions.style.height = '0';
-			filterOptions.style.padding = '0';
-			open = false;
+			closeFilter();
 		}
 	});
 })();
