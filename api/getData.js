@@ -44,10 +44,15 @@ export const getData = async () => {
 		return data.filter((country) => country.region === continent).sort(sorter);
 	}
 
+	function nameSearch(name) {
+		return data.filter((country) => country.name.common.includes(name));
+	}
+
 	return {
 		byPopulation: byPopulation,
 		byName: byName,
 		byContinent: byContinent,
+		nameSearch: nameSearch,
 	};
 };
 
