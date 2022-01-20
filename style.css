@@ -121,11 +121,12 @@ FILTER/SEARCH ====================================================
 	padding-bottom: 0.875rem;
 	padding-top: 0.875rem;
 	padding-left: 3rem;
-	border: 2px solid var(--clr-light-mode-background);
+	border: 2.5px solid rgba(152, 152, 152, 0.344);
 	border-radius: var(--border-radius);
 	z-index: 2;
 	box-shadow: var(--box-shadow);
 	max-height: 45px;
+	transition: var(--transition);
 	max-width: 400px;
 }
 
@@ -148,6 +149,7 @@ FILTER/SEARCH ====================================================
 	box-shadow: var(--box-shadow);
 	border-radius: var(--border-radius);
 	padding: 0.875rem;
+	transition: var(--transition);
 	width: 85px;
 }
 
@@ -255,6 +257,7 @@ COUNTRY CARD
 	background-color: var(--clr-light-mode-element);
 	box-shadow: var(--box-shadow);
 	border-radius: var(--border-radius);
+	transition: var(--transition);
 	/* border: 2px solid red; */
 }
 
