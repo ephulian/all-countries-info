@@ -9,17 +9,6 @@ let activeContent = '';
 let currentFilter = '';
 let countryName = '';
 
-// Define active content
-(function () {
-	if (!countryName) {
-		currentFilter == ''
-			? (activeContent = countries.byPopulation().slice(0, 20))
-			: (activeContent = currentFilter);
-	} else {
-		activeContent = countries.byPopulation().slice(0, 20);
-	}
-})();
-
 // Filter dropdown
 (function () {
 	const filterButton = document.querySelector('.filter-by');
@@ -129,6 +118,12 @@ let countryName = '';
 
 function reGenerateContent() {
 	const countriesContainer = document.querySelector('.countries');
+
+	if (!countryName && !currentFilter) {
+		activeContent = countries.byPopulation().slice(0, 20);
+	} else if (currentFilter) {
+		activeContent = currentFilter;
+	}
 
 	const list = activeContent.map((country) => {
 		return new Country(country).innerHTML;

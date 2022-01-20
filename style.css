@@ -220,8 +220,10 @@ MAIN =========================================================
 	/* border: 2px solid black; */
 	margin: 0 3rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(240px, auto));
 	grid-gap: 2rem;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 /* 
@@ -230,6 +232,7 @@ COUNTRY CARD
 
 .country-card {
 	width: 100%;
+	max-width: 300px;
 	background-color: var(--clr-light-mode-element);
 	box-shadow: var(--box-shadow);
 	border-radius: var(--border-radius);
