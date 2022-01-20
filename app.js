@@ -1,13 +1,39 @@
 import { countries } from './api/getData.js';
 import { Country } from './class.js';
 
-console.log(countries.byPopulation());
+// console.log(countries.byPopulation());
 // Define active content
 // let activeContent = countries.byPopulation().slice(0, 20);
 
 let activeContent = '';
 let currentFilter = '';
 let countryName = '';
+let currentCount = 20;
+
+const slicer = (content, count) => {
+	return content.slice(0, count);
+};
+
+const renderContent = () => {
+	const countriesContainer = document.querySelector('.countries');
+
+	if (!countryName && !currentFilter) {
+		// activeContent = countries.byPopulation().slice(0, 20);
+		activeContent = slicer(countries.byPopulation(), currentCount);
+	} else if (currentFilter) {
+		activeContent = slicer(currentFilter, currentCount);
+	}
+
+	const list = activeContent.map((country) => {
+		return new Country(country).innerHTML;
+	});
+
+	let outputHTML = ``;
+	list.forEach((item) => {
+		outputHTML += item;
+	});
+	countriesContainer.innerHTML = outputHTML;
+};
 
 // Filter dropdown
 (function () {
@@ -25,6 +51,7 @@ let countryName = '';
 	const continentOptions = document.querySelector('.continent-options');
 
 	const closeFilter = () => {
+		currentCount = 20;
 		filterOptions.style.height = '0';
 		filterOptions.style.padding = '0';
 
@@ -44,23 +71,23 @@ let countryName = '';
 				button.addEventListener('click', (e) => {
 					switch (e.target) {
 						case populationHL:
-							activeContent = countries.byPopulation().slice(0, 20);
-							currentFilter = countries.byPopulation().slice(0, 20);
+							activeContent = slicer(countries.byPopulation(), currentCount);
+							currentFilter = countries.byPopulation();
 							closeFilter();
 							break;
 						case populationLH:
-							activeContent = countries.byPopulation().reverse().slice(0, 20);
-							currentFilter = countries.byPopulation().reverse().slice(0, 20);
+							activeContent = slicer(countries.byPopulation().reverse(), currentCount);
+							currentFilter = countries.byPopulation().reverse();
 							closeFilter();
 							break;
 						case nameAZ:
-							activeContent = countries.byName().slice(0, 20);
-							currentFilter = countries.byName().slice(0, 20);
+							activeContent = slicer(countries.byName(), currentCount);
+							currentFilter = countries.byName();
 							closeFilter();
 							break;
 						case nameZA:
-							activeContent = countries.byName().reverse().slice(0, 20);
-							currentFilter = countries.byName().reverse().slice(0, 20);
+							activeContent = slicer(countries.byName().reverse(), currentCount);
+							currentFilter = countries.byName().reverse();
 							closeFilter();
 							break;
 						case continent:
@@ -70,17 +97,17 @@ let countryName = '';
 
 							continentOption.forEach((option) => {
 								option.addEventListener('click', (e) => {
-									activeContent = countries.byContinent(e.target.innerHTML).slice(0, 20);
-									currentFilter = countries.byContinent(e.target.innerHTML).slice(0, 20);
+									activeContent = slicer(countries.byContinent(e.target.innerHTML), currentCount);
+									currentFilter = countries.byContinent(e.target.innerHTML);
 
 									closeFilter();
-									reGenerateContent();
+									renderContent();
 								});
 							});
 							// continentsOpen = true;
 							break;
 					}
-					reGenerateContent();
+					renderContent();
 				});
 			});
 
@@ -118,7 +145,7 @@ let countryName = '';
 	});
 })();
 
-// Search button
+// Search bar
 (function () {
 	const searchBar = document.querySelector('.search');
 
@@ -134,34 +161,21 @@ let countryName = '';
 		if (e.key == 'Backspace' || e.key == 'Delete') {
 			countryName = countryName.slice(0, -1);
 			activeContent = countries.nameSearch(toTitleCase(countryName));
-			reGenerateContent();
+			renderContent();
 		} else {
 			countryName += e.key;
 			activeContent = countries.nameSearch(toTitleCase(countryName));
-			reGenerateContent();
+			renderContent();
 		}
 		console.log(countryName);
 	});
 })();
 
-function reGenerateContent() {
-	const countriesContainer = document.querySelector('.countries');
-
-	if (!countryName && !currentFilter) {
-		activeContent = countries.byPopulation().slice(0, 20);
-	} else if (currentFilter) {
-		activeContent = currentFilter;
+window.onscroll = function () {
+	if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+		currentCount += 20;
+		renderContent();
 	}
+};
 
-	const list = activeContent.map((country) => {
-		return new Country(country).innerHTML;
-	});
-
-	let outputHTML = ``;
-	list.forEach((item) => {
-		outputHTML += item;
-	});
-	countriesContainer.innerHTML = outputHTML;
-}
-
-reGenerateContent();
+renderContent();
