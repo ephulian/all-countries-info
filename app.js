@@ -15,7 +15,9 @@ const modeButton = document.querySelector('.mode');
 modeButton.addEventListener('click', mode);
 
 const searchBar = document.querySelector('.search');
-searchBar.addEventListener('click', search);
+searchBar.addEventListener('keydown', (e) => {
+	search(e.key);
+});
 
 window.onscroll = function () {
 	if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {

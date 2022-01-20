@@ -9,18 +9,14 @@ const toTitleCase = (phrase) => {
 		.join(' ');
 };
 
-export const search = () => {
-	const searchBar = document.querySelector('.search');
-
-	searchBar.addEventListener('keydown', (e) => {
-		if (e.key == 'Backspace' || e.key == 'Delete') {
-			countryName = countryName.slice(0, -1);
-			activeContent = countries.nameSearch(toTitleCase(countryName));
-			renderContent();
-		} else {
-			countryName += e.key;
-			activeContent = countries.nameSearch(toTitleCase(countryName));
-			renderContent();
-		}
-	});
+export const search = (key) => {
+	if (key == 'Backspace' || key == 'Delete') {
+		countryName = countryName.slice(0, -1);
+		activeContent = countries.nameSearch(toTitleCase(countryName));
+		renderContent();
+	} else {
+		countryName += key;
+		activeContent = countries.nameSearch(toTitleCase(countryName));
+		renderContent();
+	}
 };
