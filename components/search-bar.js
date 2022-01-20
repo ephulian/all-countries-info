@@ -1,4 +1,4 @@
-import { countries } from '../api/getData.js';
+import { countries } from '../api/get-data.js';
 import { renderContent } from './render-content.js';
 
 const toTitleCase = (phrase) => {

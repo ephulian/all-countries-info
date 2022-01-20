@@ -1,7 +1,7 @@
 let root = document.documentElement;
 const modeButton = document.querySelector('.mode');
 
-export const mode = () => {
+export const changeMode = () => {
 	if (modeButton.innerHTML == 'Dark Mode') {
 		// Change to Dark Mode
 		root.style.setProperty('--clr-light-mode-background', 'hsl(207, 26%, 17%)');

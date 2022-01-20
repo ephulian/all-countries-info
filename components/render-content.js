@@ -1,5 +1,5 @@
-import { countries } from '../api/getData.js';
-import { Country } from '../class.js';
+import { countries } from '../api/get-data.js';
+import { Country } from '../classes/Country.js';
 
 const slicer = (content, count) => {
 	return content.slice(0, count);
